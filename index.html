@@ -1,273 +1,230 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>CrimeMasterz - Free Mafia &amp; Gangster game</title>
-    <link rel="icon" href="/images/favicon/default.png">
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-    <link rel="apple-touch-startup-image" href="/apple-touch-icon.png">
-    <link rel="manifest" href="/manifest.json">
-    <link rel="stylesheet" href="asset/styles/ingame.css">
-    <link rel="stylesheet" href="asset/styles/desktop.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Condensed:700|Roboto:700,900&subset=latin,vietnamese,cyrillic,greek">
-    <script src="asset/scripts/jquery-2.2.4.min.js"></script>
-    <link rel="stylesheet" href="asset/fancybox/jquery.fancybox.css" type="text/css" />
-    <script type="text/javascript" src="asset/fancybox/jquery.fancybox.pack.js"></script>
-    <script async src="https://www.googletagmanager.com/gtag/js"></script>
-    
-    <meta property="og:title" content="CrimeMasterz" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="http://crimemasterz.mafiacontrol.com" />
-    <meta property="og:description" content="Join CrimeMasterz and create the most respected mafia in the world. Build your own mafia empire, start a family, and become the very best!">
+<head>
+<script type="text/javascript">
+    window.cookieconsent_options = {"message":"Unsurprisingly, this website uses cookies for ads and traffic analysis.","dismiss":"Got it!","learnMore":"Learn more","link":"http://orteil.dashnet.org/cookieconsentpolicy.html","target":"_blank","theme":"http://orteil.dashnet.org/cookieconsent.css","domain":"dashnet.org"};
+</script>
 
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.9/cookieconsent.min.js"></script>
 
-    <meta property="og:image" content="https://www.mafiacontrol.com/images/misc/game_socialbanner.jpg" />
-    <meta property="og:site_name" content="CrimeMasterz" />
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="mobile-web-app-capable" content="yes">
-    <link rel="alternate" hreflang="en" href="/" />
-  </head>
-  <body class="grouping_1 background_1">
-  <div style="position:absolute; top:0px; bottom:0px; right:0px; left:0px; background:#f79646; opacity:1;"></div>
-    <div id="dark_overlay"></div>
-    <div id="lost_password" class="single_notification with_alt" style="display: none">
-      <div class="close" onclick="$('#dark_overlay,#lost_password').hide(); "></div>
-      <div class="title">Forgot password?</div>
-      <div class="main">
-        <form method="post" id="recover_password">
-          <div class="textbox"><p>Did you forget your password? Fill in your e-mail address below and reset your password!</p></div>
-          <div class="box">
-            <label>Email address:</label>
-            <div class="input_field"><input type="text" name="recover" maxlength="255" value=""></div><br>
-          </div>
-          <div class="btn"><div class="button_lime" onclick="$('#dark_overlay').css({'z-index':1000}); $('#recover_password').submit();"><input type="button" value="Recover password"></div></div>
-        </form>
-      </div>
-    </div>
-<!--googleoff: index-->
-    <div id="impressum" class="single_notification with_alt" style="display:none;">
-      <div class="close" onclick="$('#dark_overlay,#impressum').hide();"></div>
-      <div class="title">Impressum</div>
-      <div class="main">
-         <div class="textbox"><p>GamoVation B.V.<br>
-            Dokter van deenweg 162<br>
-            8025 BM Zwolle<br>
-            Niederlande<br><br>
-
-            BTW/VAT ID: NL823142292B01<br>
-            KVK: 51193612<br><br>
-            
-            Das Landgericht Hamburg hat mit dem Urteil vom 12.05.98 entschieden, dass man durch die Ausbringung eines Links die Inhalte der gelinkten Seite ggf. mit zu verantworten hat. Dies kann man laut Landgericht nur verhindern, indem man sich ausdr&uuml;cklich von diesen Inhalten distanziert.
-            Wir haben keinerlei Einfluss auf die Gestaltung und die Inhalte der von dieser Seite aus gelinkten Pages. Deshalb distanzieren wir uns hiermit ausdr&uuml;cklich von den Inhalten aller gelinkten Seiten, die nicht direkt zur Internetpr&aumlsenz mafiacontrol.com geh&ouml;ren. Die auf dieser Webseite verwendeten Markennamen sind Eigentum der jeweiligen Firmen.
-          </div>
-      </div>
-    </div>
-<!--googleon: index-->
-    <div class="topbar">
-      <div class="outgame_stats_players">21 players</div>
-      <div class="outgame_stats_online">0 online</div>
+<title>Cookie Clicker</title>
 <!--
-      <div class="login">
-        <form method="post" id= "login">
-          <div class="textbox_small"><input type="text" name="username" value="" placeholder="Username" id="username"></div>
-          <div class="textbox_small"><input type="password" name="password" value="" placeholder="Password" id="password"></div>
-          <div class="login_small" onclick="$('#login').submit();">Login</div>
-          <div class="checkbox ticked" onclick="$(this).toggleClass('ticked'); if($(this).hasClass('ticked')) { $('#remember').val('1'); } else { $('#remember').val('0'); }"></div><div class="remember_text">Remember</div>
-          <input type="hidden" name="remember" id="remember" value="1">
-          <div class="forgot"><span class="link" onclick="$('#dark_overlay').show(); $('#lost_password').show();">Forgot password?</span></div>
-        </form>
-      </div>
+Code and graphics copyright Orteil, 2013-2019
+Feel free to alter this code to your liking, but please do not re-host it, do not profit from it and do not present it as your own.
 -->
-    </div>
 
-    <div id="login" onclick="$('#login_slide').show(); $('#login_slide input[name=username]').focus(); $('#login').hide();">Login</div>
-    <div id="login_slide">
-      <form method="post">
-        <div class="input_field"><input type="text" name="username" value="" maxlength="12" placeholder="Username"></div><br>
-        <div class="input_field input_second"><input type="password" name="password" value="" placeholder="Password"></div><br>
-        <div class="check_field"><div class="check_check checked" onclick="if ($(this).hasClass('checked')) { $(this).removeClass('checked'); $(this).parent().find('input').val(0); } else { $(this).addClass('checked'); $(this).parent().find('input').val(1); }">&nbsp;</div><input type="hidden" name="remember" value="1"></div><div class="check_info">Remember</div><br>
-        <p class="lostpass"><a style="cursor: pointer" onclick="$('#dark_overlay').show(); $('#lost_password').show();" href="http://crimemasterz.mafiacontrol.com/">Forgot password?</a></p>
-        <div class="button_lime login"><input type="submit" name="signup" onclick="$('#dark_overlay').show();" value="Login"></div>
-        <div class="slide_up" onclick="$('#login_slide').hide(); $('#login').show();"></div>
-      </form>
-    </div>
-    
-    <div class="main_content">
-      
-      <div class="logo" style="background: url('/logo_generator.php?game=151861&t=1693228835') center center no-repeat; background-size: contain;"></div>
-      <div class="text_balloon">
-        <div class="inner_text">
-         Join CrimeMasterz and create the most respected mafia in the world. Build your own mafia empire, start a family, and become the very best!         </div>
-      </div>
-      <div class="form">
-        <div class="left">
-          <form method="post" id="register_form">
-            <div class="title">Register now!</div>
-            <div class="left_content">
-              <div class="label">Username:</div>
-              <div class="textbox_big"><input type="text" name="username" id="reg_username" maxlength="12" value=""></div>
-              <div class="label">Password:</div>
-              <div class="textbox_big"><input type="password"  name="password"></div>
-              <div class="label">Email address:</div>
-              <div class="textbox_big"><input type="text" name="email" maxlength="255" value=""></div>
-              <div class="terms">The game is subject to our <a target="_blank" href="http://crimemasterz.mafiacontrol.com//legal/terms_en.pdf">Terms and Conditions</a></div>
+<meta name="viewport" content="width=900, initial-scale=1">
+<link rel="shortcut icon" href="img/favicon.ico" />
+<!--<link href="https://fonts.googleapis.com/css?family=Kavoon&subset=latin,latin-ext" rel="stylesheet" type="text/css">-->
+<link href='https://fonts.googleapis.com/css?family=Merriweather:900&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+<script src="showads.js"></script><!-- this just detects adblockers so we can adjust the layout and play nice -->
+<script src="base64.js"></script>
+<script src="main.js?v=2.058"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-8491708950677704",
+          enable_page_level_ads: true
+     });
+</script>
+<link href="style.css?v=2.050" rel="stylesheet" type="text/css">
+<!--[if IE]>
+<style type="text/css">
+	#ifIE9{display:block;}
+</style>
+<![endif]-->
 
+<!--[if lt IE9]><script src="excanvas.compiled.js"></script><![endif]-->
 
-              <div class="privacy_statement"><div class="check_field"><div class="check_check privacy" onclick="if ($(this).hasClass('checked')) { $(this).removeClass('checked'); $(this).parent().find('input').val(0); } else { $(this).addClass('checked'); $(this).parent().find('input').val(1); }">&nbsp;</div><input type="hidden" id="privacy" name="privacy"  value="0" ></div><div class="check_info">I did read GamoVation's <a target="_blank" href="http://crimemasterz.mafiacontrol.com//legal/privacy.pdf">Privacy Policy / GDPR statement</a></div></div>
-              <div class="signup_button" onclick="$('#dark_overlay').show(); $('#register_form').submit();">Signup</div>
-              <div class="age"></div>
-              <input type="hidden" name="facebook_token" id="facebook_token" value="">
-            </div>
-          </form>
-        </div>
-        <div class="right">
-          <div class="arrow_up off" onclick="if($(this).hasClass('off')) return; arrows_up();"></div>
-          <div class="screens" style="height:317px; overflow:hidden;">
-            <div>
-                                     <a href="http://crimemasterz.mafiacontrol.com//images/screens/screen-1-big.png" rel="fancy" class="fancy"><img alt="mafia" src="http://crimemasterz.mafiacontrol.com//images/screens/screen-1.png"></a>
-                                                 <a href="http://crimemasterz.mafiacontrol.com//images/screens/screen-2-big.png" rel="fancy" class="fancy"><img alt="mafia" src="http://crimemasterz.mafiacontrol.com//images/screens/screen-2.png"></a>
-                                                 <a href="http://crimemasterz.mafiacontrol.com//images/screens/screen-3-big.png" rel="fancy" class="fancy"><img alt="mafia" src="http://crimemasterz.mafiacontrol.com//images/screens/screen-3.png"></a>
-                                                 <a href="http://crimemasterz.mafiacontrol.com//images/screens/screen-4-big.png" rel="fancy" class="fancy"><img alt="mafia" src="http://crimemasterz.mafiacontrol.com//images/screens/screen-4.png"></a>
-                                                 <a href="http://crimemasterz.mafiacontrol.com//images/screens/screen-5-big.png" rel="fancy" class="fancy"><img alt="mafia" src="http://crimemasterz.mafiacontrol.com//images/screens/screen-5.png"></a>
-                                                 <a href="http://crimemasterz.mafiacontrol.com//images/screens/screen-6-big.png" rel="fancy" class="fancy"><img alt="mafia" src="http://crimemasterz.mafiacontrol.com//images/screens/screen-6.png"></a>
-                                                 <a href="http://crimemasterz.mafiacontrol.com//images/screens/screen-7-big.png" rel="fancy" class="fancy"><img alt="mafia" src="http://crimemasterz.mafiacontrol.com//images/screens/screen-7.png"></a>
-                                                 <a href="http://crimemasterz.mafiacontrol.com//images/screens/screen-8-big.png" rel="fancy" class="fancy"><img alt="mafia" src="http://crimemasterz.mafiacontrol.com//images/screens/screen-8.png"></a>
-                                </div>
-          </div>
-          <div class="arrow_down" onclick="if($(this).hasClass('off')) return; arrows_down();"></div>
-        </div>
-      </div>
-      <div class="character character_1"></div>
-    </div>
+</head>
+<body>
 
-    <div id="footer">
-      <div class="img_footer">
-        <div class="create_text"><a target="_blank" href="http://www.mafiacontrol.com/">Click here to create your own mafia game and earn real money!</a></div> 
-        <div class="right_text">
-    
-        </div>
- 
-        <a class="footer_button_facebook" rel="nofollow" target="_blank" href="https://www.facebook.com/mafiacontrolcom"></a> 
+<div id="wrapper">
 
+	<div id="topBar">
+		<div><b>Cookie Clicker</b>&trade; &copy; <a href="http://orteil.dashnet.org" target="_blank" id="topbarOrteil">Orteil</a>, 2019 - <a href="http://dashnet.org" target="_blank" id="topbarDashnet">DashNet</a></div>
+		<div><a href="http://twitter.com/orteil42" target="_blank" id="topbarTwitter">twitter</a></div>
+		<div><a href="http://orteil42.tumblr.com" target="_blank" id="topbarTumblr">tumblr</a></div>
+		<!--<div><a href="http://forum.dashnet.org" target="_blank">Official forum</a></div>-->
+		<div style="position:relative;"><div style="width:22px;height:32px;background:url(img/discord.png);position:absolute;left:0px;top:0px;pointer-events:none;"></div><a href="https://discordapp.com/invite/cookie" target="_blank" style="padding-left:16px;" id="topbarDiscord">Discord</a></div>
+		<div style="position:relative;"><div style="width:25px;height:32px;background:url(img/weeHoodie.png);position:absolute;left:-2px;top:0px;pointer-events:none;"></div><a class="blueLink" href="http://www.redbubble.com/people/dashnet" target="_blank" style="padding-left:12px;" id="topbarMerch">Merch!</a></div>
+		<div style="position:relative;"><div style="width:22px;height:32px;background:url(img/patreon.png);position:absolute;left:0px;top:0px;pointer-events:none;"></div><a class="orangeLink" href="https://www.patreon.com/dashnet" target="_blank" style="padding-left:16px;" id="topbarPatreon">Patreon</a></div>
+		<div style="position:relative;display:none;font-weight:bold;" id="heralds"><div style="position:absolute;top:-4px;width:31px;height:39px;background:url(img/heraldFlag.png);left:50%;margin-left:-15px;pointer-events:none;"></div><div id="heraldsAmount" style="position:relative;z-index:10;text-shadow:0px 1px 0px #000,0px 0px 6px #ff00e4;color:#fff;">-</div></div>
+		<div><a class="lightblueLink" style="font-weight:bold;" href="https://play.google.com/store/apps/details?id=org.dashnet.cookieclicker" target="_blank" id="topbarMobileCC">Cookie Clicker for Android</a></div>
+		<div><a href="http://orteil.dashnet.org/randomgen/" target="_blank" id="topbarRandomgen">RandomGen</a></div>
+		<div><a href="http://orteil.dashnet.org/igm/" target="_blank" id="topbarIGM">Idle Game Maker</a></div>
+		<div id="links" class="hoverer">
+			Other versions
+			<div class="hoverable">
+			<a href="../" target="_blank" id="linkVersionLive">Live version</a>
+			<a href="beta" target="_blank" id="linkVersionBeta">Try the beta!</a>
+			<a href="http://orteil.dashnet.org/cookieclicker/v10466" target="_blank" id="linkVersionOld">v. 1.0466</a>
+			<a href="http://orteil.dashnet.org/experiments/cookie/" target="_blank">Classic</a>
+			</div>
+		</div>
+	</div>
 
+	<div id="game">
+		<div id="javascriptError">
+			<div id="loader">
+				<div class="spinnyBig"></div>
+				<div class="spinnySmall"></div>
+				<div id="loading" class="title">Loading...</div>
+				<div id="failedToLoad" class="title">This is taking longer than expected.<br>
+				<div style="font-size:65%;line-height:120%;">Slow connection? If not, please make sure your javascript is enabled, then refresh.<br>
+				If problems persist, this might be on our side - wait a few minutes, then hit ctrl+f5!</div></div>
+				<div id="ifIE9" class="title" style="font-size:100%;line-height:120%;">Your browser may not be recent enough to run Cookie Clicker.<br>You might want to update, or switch to a more modern browser such as Chrome or Firefox.</div>
+				<!--<div class="title">Oops, looks like we've got a problem.</div>
+				<div>Please bear with us while we fix it.<br>Your save is safe, don't worry!</div>-->
+			</div>
+		</div>
 
- 
-        <iframe id="fb_like" style="height: 20px" src="https://www.facebook.com/plugins/like.php?href=https://www.facebook.com/mafiacontrolcom&amp;send=false&amp;layout=button_count&amp;width=144&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=arial&amp;height=21&amp" scrolling="no" frameborder="0" allowtransparency="true"></iframe>
-    
-      </div>
-      <form method="post" id="update_lang"><input type="hidden" name="language" id="update_language" value=""></form>
-    </div>
-    <script>
-      var page = 0;
-      function arrows_down() {
-        $('.right .arrow_up').removeClass('off');
-        page++;
-        $('.screens div').css({'top':(-page*322)+'px'}); 
-        arrows();
-      }
+		<canvas id="backgroundCanvas"></canvas>
+		
+		<div id="goldenCookie" class="goldenCookie"></div>
+		<div id="seasonPopup" class="seasonPopup"></div>
+		<div id="shimmers"></div>
+		<div id="alert"></div>
+		<div id="particles"></div>
+		<div id="sparkles" class="sparkles"></div>
+		<div id="notes"></div>
+		<div id="darken"></div>
+		<div id="toggleBox" class="framed prompt"></div>
+		<div id="promptAnchor"><div id="prompt" class="framed"><div id="promptContent"></div><div class="close" onclick="PlaySound('snd/tick.mp3');Game.ClosePrompt();">x</div></div></div>
+		<div id="versionNumber" class="title"></div>
+		<div id="ascend">
+			<div id="ascendBG"></div>
+			<div id="ascendZoomable"><div id="ascendContent"><div id="ascendUpgrades" style="position:absolute;"></div></div></div>
+			<div id="ascendOverlay"></div>
+		</div>
+		
+		<div id="debug"><div id="devConsole" class="framed"></div><div id="debugLog"></div></div>
+		
+		<div id="sectionLeft" class="inset">
+			<canvas id="backgroundLeftCanvas" style="z-index:5;"></canvas>
+			<div class="blackFiller"></div>
+			<div class="blackGradient"></div>
+			<div id="sectionLeftInfo"></div>
+			<div id="cookies" class="title"></div>
+			<div id="bakeryNameAnchor"><div id="bakeryName" class="title"></div></div>
+			<div id="specialPopup" class="framed prompt offScreen"></div>
+			<div id="buffs" class="crateBox"></div>
+			<div id="cookieAnchor">
+				<div id="bigCookie"></div>
+				<div id="cookieNumbers"></div>
+			</div>
+			<div id="sectionLeftExtra"></div>
+		</div>
 
-      function arrows_up() {
-        $('.right .arrow_down').removeClass('off');
-        page--;
-        $('.screens div').css({'top':(-page*322)+'px'}); 
-        arrows();
-      }
+		<div class="separatorLeft"></div>
+		<div class="separatorRight"></div>
 
-      function arrows() {
-        pages = ($('.screens img').length/2)-1;
-        if (page >= pages) $('.right .arrow_down').addClass('off');
-        if (page <= 0) $('.right .arrow_up').addClass('off');
-      }
+		<div id="sectionMiddle" class="inset">
+			<div id="comments" class="inset title">
+				<div id="prefsButton" class="button">Options</div>
+				<div id="statsButton" class="button">Stats</div>
+				<div id="logButton" class="button"><div id="checkForUpdate">New update!</div>Info</div>
+				<div id="legacyButton" class="button">Legacy<div id="ascendMeterContainer" class="smallFramed meterContainer"><div id="ascendMeter" class="meter filling"></div></div><div class="roundedPanel" id="ascendNumber"></div><div id="ascendTooltip" class="framed"></div></div>
+				<div id="commentsTextBelow" class="commentsText"></div>
+				<div id="commentsText" class="commentsText"></div>
+				<div class="separatorBottom"></div>
+			</div>
+			<div id="centerArea">
+				<div id="buildingsTitle" class="inset title zoneTitle">Buildings</div>
+				<div id="buildingsMaster"></div>
+				<div id="rows"></div>
+				<div id="menu"></div>
+				<!--
+				<div id="donateBox">
+					<form target="_blank" action="https://www.paypal.com/cgi-bin/webscr" method="post" id="donate" style="margin:0px 16px;">
+					<input type="hidden" name="cmd" value="_s-xclick">
+					<input type="hidden" name="hosted_button_id" value="BBN2WL3TC6QH4">
+					<input type="image" src="https://www.paypalobjects.com/en_GB/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal — The safer, easier way to pay online.">
+					<img alt="" border="0" src="https://www.paypalobjects.com/nl_NL/i/scr/pixel.gif" width="1" height="1">
+					</form>
+					<small>Help us keep developing the game!</small>
+				</div>
+				-->
+			</div>
+		</div>
 
-      $("input[name='username']").click(function () { $(this).select(); });
-      $("input[name='password']").click(function () { $(this).select(); });
-      $("input[name='reg_username']").click(function () { $(this).select(); });
-      $("input[name='reg_email']").click(function () { $(this).select(); });
-      $("input[name='reg_password']").click(function () { $(this).select(); });
+		<div id="sectionRight" class="inset">
+			<div class="ifNoAds" style="width:300px;text-align:center;padding:8px 0px;background:rgba(0,0,0,0.95);font-size:10px;opacity:0.5;text-shadow:0px 0px 2px #000,0px 1px 0px #000;text-align:center;">
+				Cookie Clicker is mainly supported by ads.<br>Consider unblocking our site or checking out our <a href="https://www.patreon.com/dashnet" target="_blank">Patreon</a>!
+			</div>
+			<div id="smallSupport" style="width:300px;text-align:center;padding-bottom:40px;background:rgba(0,0,0,0.5);position:relative;z-index:100;">
+				
+				<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+				<!-- Cookie Clicker Header Responsive -->
+				<ins class="adsbygoogle"
+					 style="display:block;margin:auto;width:300px;max-height:300px;overflow:hidden;"
+					 data-ad-client="ca-pub-8491708950677704"
+					 data-ad-slot="7077525342"
+					 data-ad-format="rectangle"
+					 data-full-width-responsive="true"></ins>
+				<script>
+				(adsbygoogle = window.adsbygoogle || []).push({});
+				</script>
+				
+				<div class="supportComment">^ Sponsored link ^</div>
+			</div>
+			<div id="store">
+				<div id="storeTitle" class="inset title zoneTitle">Store</div>
+				<div id="toggleUpgrades" class="storeSection upgradeBox"></div>
+				<div id="techUpgrades" class="storeSection upgradeBox"></div>
+				<div id="vaultUpgrades" class="storeSection upgradeBox"></div>
+				<div id="upgrades" class="storeSection upgradeBox"></div>
+				<div id="products" class="storeSection"></div>
+			</div>
+			
+			<div id="detectAds" class="adBanner" style="background:transparent;width:1px;height:1px;"></div>
+			<div id="support" style="margin-top:130px;">
+				<div class="supportComment">v Sponsored links v</div>
+				<div style="position:relative;">
+				
+					<div style="position:relative;z-index:100;min-height:250px;">
+					
+						<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+						<!-- Cookie Clicker Responsive -->
+						<ins class="adsbygoogle"
+							 style="display:block;margin:auto;"
+							 data-ad-client="ca-pub-8491708950677704"
+							 data-ad-slot="9780186019"
+							 data-ad-format="auto"
+							 data-full-width-responsive="true"></ins>
+						<script>
+						(adsbygoogle = window.adsbygoogle || []).push({});
+						</script>
+						
+						<div style="height:16px;"></div>
+						
+						<!-- AdventureQuest Worlds banner -->
+						<a class="ad" id="aqad" href="http://www.aq.com/landing/cookie/?utm_campaign=AQW_CookieClicker&utm_source=CookieClicker" target="_blank" title="AdventureQuest Worlds" style="background:url(img/aqworldsbanner.jpg) no-repeat;width:300px;height:64px;display:block;position:relative;margin:0px auto;">
+						</a>
+						
+					</div>
+					
+				</div>
+			</div>
+		</div>
+		
+		<div id="focusButtons">
+			<div id="focusLeft" class="title">Cookie</div>
+			<div id="focusMiddle" class="title" style="font-size:80%;padding-top:18px;padding-bottom:14px;">Buildings</div>
+			<div id="focusRight" class="title">Store</div>
+			<div id="focusMenu" class="title">Menu</div>
+		</div>
+		<div id="compactOverlay" class="title">
+			<div id="compactCommentsText" class="commentsText"></div>
+			<div id="compactCookies"></div>
+			<div class="separatorBottom"></div>
+		</div>
+		
+		<div id="tooltipAnchor"><div id="tooltip" class="framed" onMouseOut="Game.tooltip.hide();"></div></div>
 
-      $(".fancy").fancybox({
-        'overlayShow'	: false,
-        'transitionIn'	: 'elastic',
-        'transitionOut'	: 'elastic'
-      });
+	</div>
 
-      var ua = navigator.userAgent, doc = document.documentElement;
-      var browser_is_ie = 0;
-      if ((ua.match(/MSIE 10.0/i))) {
-        doc.className = doc.className + " ie10";
-        browser_is_ie = 10;
-      } else if((ua.match(/rv:11.0/i))){
-        doc.className = doc.className + " ie11";
-        browser_is_ie = 11;
-      }
-      
-      
-      window.fbAsyncInit = function() {
-        FB.init({
-          appId      : '0',
-          cookie     : true,
-          xfbml      : true,
-          version    : 'v7.0'
-        });
-        
-        FB.getLoginStatus();
-      };
-      
-      function fb_status(response) {
-        switch (response.status) {
-          case 'connected':
-            $('#facebook_token').val(response.authResponse.accessToken);
-            $('#register_form').submit();
-          break;
-          default:
-            FB.login(function(response) {
-              if (response.status == 'connected') { fb_status(response); } else { location.reload(); }
-            }, {scope: 'email'});
-          break;
-        }
-      }
+</div>
 
-      function fb_loginstate() {
-        FB.getLoginStatus(function(response) {
-          fb_status(response);
-        });
-      }
-      
-      (function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = "//connect.facebook.net/en_US/sdk.js?1";
-        fjs.parentNode.insertBefore(js, fjs);
-      }(document, 'script', 'facebook-jssdk'));
-
-      function update_lang(lang,full_lang) {
-        $('#update_language').val(lang);
-        $('#update_lang').submit();
-      }
-
-      function change_lang(lang,full_lang) { 
-        $('.language_bar .language_selector .lang_span_value').html(lang);
-        $('.language_bar .language_selector .lang_span').html(full_lang);
-        $('.language_bar .language_selector').removeClass('active');
-        $('.language_selector').find('.arrow').toggleClass('active');
-        $('.language_bar .language_overview').hide();
-      }
-      change_lang('en','English');
-
-      $(document).off('keydown').on('keydown', function(e) {
-        if (e.which == 27) {
-          e.preventDefault();
-          $('.error_dialog:visible').find('.close:visible').trigger('click');
-        };
-      });
-    </script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date()); 
-  gtag('config', 'AW-758720799', { 'anonymize_ip': true });
-  /* gtag('event', 'page_view', {'send_to': 'AW-758720799', 'anonymize_ip': true, }); */
-  window.setInterval('gtag(\'event\', \'page_view\', {\'send_to\': \'AW-758720799\', \'anonymize_ip\': true, });', 120000);
-    </script>
-        </body>
+</body>
 </html>
